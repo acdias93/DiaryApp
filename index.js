@@ -1,21 +1,40 @@
 document.querySelector("#loginform").style.display = "none";
 document.querySelector("#createAcc").style.display = "none";
 
-function openwindowLogin() {
-  document.querySelector("#loginform").style.display='block';
+function toggleWindow(action, id) {
+  let element = document.querySelector(id);
+  
+  if (action === 'open') {
+    element.style.display = 'block';
+  } else if (action === 'close') {
+    element.style.display = 'none';
+  }
 }
 
-function closewindowLogin() {
-  document.querySelector("#loginform").style.display='none';
+class User {
+  constructor (username,email, password, coverimage ) {
+      this.username = username;
+      this.email = email;
+      this.password = password;
+      this.coverimage = coverimage; 
+  }
 }
 
-function openwindowSignUp() {
-  document.querySelector("#createAcc").style.display='block';
+let users = [];
+
+function addNewUser() {
+  const username = document.querySelector('input[name="username"]').value;
+  const email = document.querySelector('input[name="email"]').value;
+  const password = document.querySelector('input[name="psw"]').value;
+  const coverimage = document.querySelector('input[name="cover"]').value;
+  
+  const newUser = new User(username, email, password, coverimage);
+  users.push(newUser);
 }
 
-function closewindowSignUp() {
-  document.querySelector("#createAcc").style.display='none';
-}
+
+
+
 
 /* Agora falta é fazer uma só função que faça isto */
 

@@ -12,62 +12,60 @@
   <div class="intro">
     <img src="181534.png" alt="cadeado">
     <div class="choose">
-      <button id="login" type="button" onclick="openwindowLogin()">Login</button><br>
-      <button id="signup" type="button" onclick="openwindowSignUp()">Sign Up</button>
+      <button id="login" type="button" onclick="toggleWindow('open', '#loginform')">Login</button><br>
+      <button id="signup" type="button" onclick="toggleWindow('open', '#createAcc')">Sign Up</button>
     </div>
   </div>
 
 <div class="entryforms" id="loginform">
-    <span onclick="closewindowLogin()" class="close" title="Close login">X</span>
-    <form class="login-signup-content" action="/action_page.php">
+    <span onclick="toggleWindow('close', '#loginform')" class="close" title="Close login">X</span>
+    <form class="login-signup-content">
       <div class="container">
-        <div class="container">
           <h1>Log In</h1>
           <p>Please fill in your Username and Password to Log In.</p>
           <hr>
           <div class="form">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Username" name="username" required>
+            <label for="usernameLogin">Username</label>
+            <input type="text" placeholder="Username" id="usernameLogin" name="username" required>
     
-            <label for="psw">Password</label>
-            <input type="password" placeholder="Password" name="psw" required>
+            <label for="pswLogin">Password</label>
+            <input type="password" placeholder="Password" id="pswLogin" name="psw" required>
       
           </div>
           <div class="clearfix">
             <button type="submit" class="btn">Login</button>
-            <button type="button" onclick="closewindowLogin()" class="cancelbtn">Cancel</button>
+            <button type="button" onclick="toggleWindow('close', '#loginform')" class="cancelbtn">Cancel</button>
           </div>
-        </div>
       </div>
     </form>
 </div>
 
 
 <div class="entryforms" id="createAcc">
-    <span onclick="closewindowSignUp()" class="close" title="Close createAcc">&times;</span>
-    <form class="login-signup-content" action="/action_page.php">
+    <span onclick="toggleWindow('close', '#createAcc')" class="close" title="Close createAcc">&times;</span>
+    <form class="login-signup-content">
       <div class="container">
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
         <div class="form">
-          <label for="username">Enter Username<span class="required">*</span></label>
-          <input type="text" placeholder="Enter Username" name="username" required>
+          <label for="usernameField">Enter Username<span class="required">*</span></label>
+          <input type="text" placeholder="Enter Username" id="usernameField" name="username" required>
 
-          <label for="email">Email<span class="required">*</span></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <label for="emailField">Email<span class="required">*</span></label>
+          <input type="text" placeholder="Enter Email" id="emailField" name="email" required>
 
-          <label for="psw">Password<span class="required">*</span></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="passwordField">Password<span class="required">*</span></label>
+          <input type="password" placeholder="Enter Password" id="passwordField" name="psw" required>
 
-          <label for="psw-repeat">Repeat Password<span class="required">*</span></label>
-          <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+          <label for="psw-repeatField">Repeat Password<span class="required">*</span></label>
+          <input type="password" placeholder="Repeat Password" id="psw-repeatField" name="psw-repeat" required>
           <!--Aqui nas passwords preciso de fazer uma função que veja se elas são iguais, para dar erro se não forem-->
             
           <label for="cover">Diary Cover</label>
           <input type="file" accept="image/*" id="cover" placeholder="Diary Cover" name="cover">
           <div class="clearfix">
-            <button type="submit" class="btn">Sign Up</button>
-            <button type="button" onclick="closewindowSignUp()" class="cancelbtn">Cancel</button>
+            <button type="submit" onclick="addNewUser()" class="btn">Sign Up</button>
+            <button type="button" onclick="toggleWindow('close', '#createAcc')" class="cancelbtn">Cancel</button>
           </div>
         </div>
       </div>
